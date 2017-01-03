@@ -65,7 +65,7 @@ reverse_create_list_acc(N) ->   reverse_create_list_acc(N, 1, []).
 reverse_create_list_acc(N,N,Acc) ->  [N|Acc];
 reverse_create_list_acc(N,M,Acc) -> reverse_create_list_acc(N, M+1, [M|Acc]).
 
-%%% Exercise 4, 编写一个打印出1到N的整数的函数
+%%% Exercise 5, 编写一个打印出1到N的整数的函数
 
 %%recursion
 print_integer(N) when N > 1->
@@ -84,7 +84,7 @@ print_integer_acc(M, N) when N > M->
 print_integer_acc(N, N)->
     io:format("Number: ~p~n", [N]).
 
-%%% Exercise 5, 编写一个打印出1到N的偶数的函数
+%%% Exercise 6, 编写一个打印出1到N的偶数的函数
 
 %%recursion
 print_even(N) when N >= 2->
@@ -115,7 +115,7 @@ print_even_acc(M, N) when N >= 2->
 	end.
 
 	
-%%%Exercise 6, 编写一个用列表做成的数据库,可以查询，写入，删除. 写入的数据是tuple with tag,tag作为key.
+%%%Exercise 7, 编写一个用列表做成的数据库,可以查询，写入，删除. 写入的数据是tuple with tag,tag作为key.
 
 %%recursion
 create_db()->
@@ -154,7 +154,7 @@ delete_db(Key, [Head|Tail], NewDb)->
     
                         
 
-%%%Exercise 7, 编写一个函数，给定一个整数和一个整数列表，并且返回所有小于或者等于该整数的整数.						
+%%%Exercise 8, 编写一个函数，给定一个整数和一个整数列表，并且返回所有小于或者等于该整数的整数.						
 
 %%recursion
 filter(Integer_list, Filter)->
@@ -180,7 +180,7 @@ filter1([Head|Tail], Filter, Filter_list)  when Head =< Filter  ->
 filter1([_|Tail], Filter, Filter_list)->
      filter1(Tail, Filter, Filter_list).   
    
-%%%Exercise 8, 编写一个函数，给定一个列表，颠倒其中元素的顺序进行排列    
+%%%Exercise 9, 编写一个函数，给定一个列表，颠倒其中元素的顺序进行排列    
 
 %%recursion
 reverse([])->
@@ -197,7 +197,7 @@ reverse_acc([], Acc)->
 reverse_acc([Head|Tail], Acc)->
     reverse_acc(Tail, [Head | Acc]).
 	
-%%%Exercise 9, 编写一个函数，给定一个列表的列表，将它们连接起来.
+%%%Exercise 10, 编写一个函数，给定一个列表的列表，将它们连接起来.
 
 %%recursion
 concat([[Head|Tail1]|Tail2])->
@@ -218,7 +218,7 @@ concat_acc([[]|Tail], Acc)->
 concat_acc([], Acc)->
     reverse(Acc).		
 	
-%%%Exercise 10, 编写一个函数，给定一个嵌套列表的列表，返回一个拉平的列表  
+%%%Exercise 11, 编写一个函数，给定一个嵌套列表的列表，返回一个拉平的列表  
 
 %%recursion
 %% Lift nested lists to the front of the list.
@@ -227,7 +227,7 @@ flatten([[]|T]) -> flatten(T);
 flatten([E|T]) -> [E|flatten(T)];
 flatten([]) -> [].	
 
-%%%Exercise 11, 编写一个函数，对列表实现快速排序
+%%%Exercise 12, 编写一个函数，对列表实现快速排序
 %%recursion
 
 filter_left(List, Filter)->
@@ -259,7 +259,7 @@ quick_sort([Head|[]])->
 quick_sort([Head|Tail])->
     quick_sort(filter_left(Tail, Head))++[Head]++quick_sort(filter_right(Tail,Head)).
 
-%%%Exercise 11, 编写一个函数，对列表实现合并排序
+%%%Exercise 13, 编写一个函数，对列表实现合并排序
 
 merge(List1, List2)->
     merge(List1, List2, []).
